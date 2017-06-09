@@ -43,6 +43,9 @@
       <div class="col-lg-4 col-md-4"></div>
       <div class="printup">
         <h1>Nothing Exist so Update it</h1>
+        <div class="buttonedit">
+                   <%= link_to "<button class='btn btn-lg btn-primary wow fadeInUp' data-wow-delay='1s'><i class='fa fa-key' aria-hidden='true' ></i>Change Password</button>".html_safe, edit_user_path(session[:user_id]), :id => "", :class => "button" %>
+                </div>
       </div>
 
     <% end %>
