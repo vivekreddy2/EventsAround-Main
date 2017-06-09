@@ -2,9 +2,6 @@ class User < ApplicationRecord
   has_secure_password
   has_one :personalinfo;
   validates_format_of :name, :with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, :message => '$Email Id is invalid$'
-  validates :password, :presence => true,
-                   :confirmation => true,
-                   :length => {:within => 5..20, :message => '$Password length is very small$'};
    def self.from_omniauth(auth)
     where(name: auth.info.name).first_or_initialize.tap do |user|
       user.name = auth.info.email
@@ -13,7 +10,7 @@ class User < ApplicationRecord
       user.password = string
       if User.exists?(name: user.name)
       else 
-		user.save!
+		    user.save!
       end
     end
   end
