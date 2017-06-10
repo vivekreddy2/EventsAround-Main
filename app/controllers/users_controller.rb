@@ -21,10 +21,10 @@ class UsersController < ApplicationController
         render :index
         return
       else 
-        redirect_to login_path, alert: "You should be logged in as Admin"
+        redirect_to login_path, alert: "You must have admin privilages"
       end
    else 
-    redirect_to login_path, alert: "You should be logged in as Admin"
+    redirect_to login_path, alert: "You must have admin privilages"
   end
  end
 
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        "UserMailer.welcome_email(@user, @inipassword).deliver_now"
+        UserMailer.welcome_email(@user, @inipassword).deliver_now
         format.html { redirect_to login_path, alert: 'User was successfully created and validated Check your mail box for further information' }
         format.json { render :show, status: :created, location: @user }
         session[:user_id] = nil

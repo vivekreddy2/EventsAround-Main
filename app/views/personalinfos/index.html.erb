@@ -35,7 +35,11 @@
         <h3><i class="fa fa-phone" aria-hidden="true" ></i><%= @check.phoneno %></h2>
         <h3><i class="fa fa-envelope" aria-hidden="true" ></i><%= @check2.name %></h3>
         <div class="buttonedit">
+<<<<<<< HEAD
                    <%= link_to "<button class='btn btn-lg btn-primary wow fadeInUp' data-wow-delay='1s'><i class='fa fa-key' aria-hidden='true' ></i>Change Password</button>".html_safe, edit_user_path(session[:user_id]), :id => "", :class => "button" %>
+=======
+                   <button class='btn btn-lg btn-primary wow fadeInUp' data-wow-delay='1s'><i class='fa fa-key' aria-hidden='true' ></i><%= link_to 'Change Password' , edit_user_path(session[:user_id]), :id => "", :class => "button" %></button>
+>>>>>>> 430c643167416c645597d10c563aeb9632f5c1c1
                 </div>
     </div>
         <% puts "Yeah yeah it is coming" %>
